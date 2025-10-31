@@ -1,11 +1,16 @@
 const express = require("express");
 const app = express();
-const port = 3000;
 
 app.use(express.json());
 
 let books = [];
 
+// Root route (to avoid 404 on base URL)
+app.get("/", (req, res) => {
+  res.send("Library Server API is running on Vercel!");
+});
+
+// POST route
 app.post("/books", (req, res) => {
   const { bookNo, title, price } = req.body;
   if (!bookNo || !title || !price) {
@@ -16,10 +21,9 @@ app.post("/books", (req, res) => {
   res.status(201).json({ message: "Book added successfully", book });
 });
 
+// GET route
 app.get("/books", (req, res) => {
   res.json(books);
 });
 
-app.listen(port, () => {
-  console.log(`Server running at http://localhost:${port}`);
-});
+module.exports = app;
