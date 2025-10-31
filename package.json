@@ -1,0 +1,16 @@
+{
+  "name": "library-server",
+  "version": "1.0.0",
+  "description": "Simple Express app for managing books in memory",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.1.0",
+    "cors": "^2.8.5"
+  }
+}
